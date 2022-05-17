@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+  --primaryColor: #091353;
+  --primaryColorLight: #09135390;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+header { 
+  display: flex;
+  background-color: var(--primaryColor);
+  color: #fff;
+  width: 100%;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+header > nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout {
+  height: 30px;
+  padding: 5px 15px;
+  min-width: 100px;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #f1f2f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.containerMessages {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  height: 60vh;
+  overflow-y: auto;
+  margin: 90px 20px 10px 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.containerSendMessage {
+  width: 98%;
+  height: auto;
+  margin: 0 20px 10px 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.sendMessage {
+  border: none;
+  background-color: var(--primaryColor);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+.containerSendMessage form {
+  width: 100%;
+  display: flex;
+}
+
+.containerSendMessage textarea {
+  border: none;
+  width: 100%;
+  resize: none;
+  outline: none;
+}
+
+.containerSendMessage textarea:focus {
+  border: none;
+  outline: none;
+}
+
+.containerMessage {
+  width: 100%;
+  display: flex;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px;
+  background-color: #9D84B7;
+  min-width: 170px;
+  padding: 5px 8px;
+  border-radius: 10px;
+  color: #fff;
+  height: auto;
+}
+
+.message p {
+  margin: 5px 0;
+  width: 100%;
+  height: auto;
+  word-break: break-word;
+}
+
+.message .infoMessage {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.containerForm {
+  width: 90%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* gap: 15px; */
+  background-color: #fff;
+  padding: 20px;
+  filter: drop-shadow(2px 2px 6px rgba(0,0,0,.2));
+  border-radius: 10px;
+}
+
+.containerForm h2 {
+  margin: 0 0 15px 0;
+  padding: 0;
+}
+
+.containerForm > label {
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+ 
+.containerForm > input {
+  width: 93%;
+  padding: 8px 10px;
+  border: none;
+  border: solid 1px #ccc;
+  border-radius: 10px;
+  display: flex;
+  /* margin: 0px; */
+}
+
+.containerForm > button {
+  width: 100%;
+  margin: 10px 0 0 0;
+  border: none;
+  background-color: var(--primaryColor);
+  padding: 9px 0;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.containerForm > button:hover {
+  background-color: var(--primaryColorLight);
+  transition: all .2s;
+}
+
+.containerForm .errorMessage {
+  color: red;
+  font-size: 12px;
+  width: 98%;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.containerForm .registrarIngresar {
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+.containerForm .registrarIngresar > a{
+  text-decoration: none;
+}
