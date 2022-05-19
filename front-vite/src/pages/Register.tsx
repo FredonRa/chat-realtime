@@ -29,8 +29,6 @@ const Register: React.FC<RegisterProps> = () => {
     const [errorPassword, setErrorPassword] = React.useState<boolean>(false);
     const [errorUsername, setErrorUsername] = React.useState<boolean>(false);
 
-    // const { currentUser } = useContext(AuthContext);
-
     const URL = "http://localhost:3001/register";
 
     function isEmail(email: string) {
@@ -41,7 +39,6 @@ const Register: React.FC<RegisterProps> = () => {
             return true;
         }
     }
-    
 
     const submitForm = async (e) => {
         e.preventDefault();
@@ -81,6 +78,8 @@ const Register: React.FC<RegisterProps> = () => {
             console.log(err)
         })
     }
+
+    if (JSON.parse(localStorage.getItem("user") || "{}")) return window.location.href = "/";
     
     return (  
         <main className="container">

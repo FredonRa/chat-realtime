@@ -1,10 +1,12 @@
 import * as React from 'react'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { setLoggedIn, setUser } from '../store/actions/application.actions';
 interface LoginProps {
     
 }
  
 const Login: React.FC<LoginProps> = () => {
+    const dispatch = useDispatch();
     const [ user, setUSer ] = React.useState<{
         username: string,
         password: string,
@@ -28,8 +30,7 @@ const Login: React.FC<LoginProps> = () => {
     const [errorMail, setErrorMail] = React.useState<boolean>(false);
     const [errorPassword, setErrorPassword] = React.useState<boolean>(false);
     const [errorUsername, setErrorUsername] = React.useState<boolean>(false);
-
-    // const { currentUser } = useContext(AuthContext);
+    const store = useSelector((store) => store.applicationReducer.user);
 
     const URL = "http://localhost:3001/login";
 
@@ -41,7 +42,6 @@ const Login: React.FC<LoginProps> = () => {
             return true;
         }
     }
-    
 
     const submitForm = async (e) => {
         e.preventDefault();
@@ -67,17 +67,18 @@ const Login: React.FC<LoginProps> = () => {
             })
         .then((result) => {
             if (result.ok) {
-                setTimeout(() => {
-                    // window.location.href = "/login";
-                }, 3000)
+                dispatch(setLoggedIn());
+                dispatch(setUser(result.user));
             } else {
-                throw Error(result.err.message)
+                throw new Error(result.err.message)
             }
         })
         .catch((err) => {
             console.log(err)
         })
     }
+
+    if (JSON.parse(localStorage.getItem("user") || "{}")) return window.location.href = "/";
 
     return (  
         <main className="container">
