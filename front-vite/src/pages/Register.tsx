@@ -1,10 +1,12 @@
 import * as React from 'react'
+import { Navigate } from 'react-router-dom';
 
 interface RegisterProps {
     
 }
  
 const Register: React.FC<RegisterProps> = () => {
+    const isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn") || "false");
     const [ user, setUSer ] = React.useState<{
         username: string,
         password: string,
@@ -79,7 +81,7 @@ const Register: React.FC<RegisterProps> = () => {
         })
     }
 
-    if (JSON.parse(localStorage.getItem("user") || "{}")) return window.location.href = "/";
+    if (isLoggedIn) return <Navigate to="/" replace={true} />;
     
     return (  
         <main className="container">

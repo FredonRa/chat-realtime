@@ -5,16 +5,19 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import { useDispatch } from "react-redux"
-import { setLoggedIn, setUser } from './store/actions/application.actions';
+import { setLoggedIn, setLogout, setUser } from './store/actions/application.actions';
 
 function App() {
   const dispatch = useDispatch();
+
   React.useEffect(() => {
-    const state = JSON.parse(localStorage.getItem("user") || "{}");
-    if(state) {
+    const isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn") || "false");
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    
+    if(isLoggedIn) {
       dispatch(setLoggedIn())
-      dispatch(setUser(state))
-    };
+      dispatch(setUser(user))
+    }
   }, []);
 
   return (

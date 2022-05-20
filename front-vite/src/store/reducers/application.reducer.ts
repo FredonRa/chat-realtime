@@ -15,7 +15,7 @@ const initialState: {
 };
 
 export const applicationReducer = (state = initialState, action: any ) => {
-    if (!action.payload) return state
+    // if (!action.payload) return state
     switch (action.type) {
         case t.SET_IS_LOGGEDIN:
             return {

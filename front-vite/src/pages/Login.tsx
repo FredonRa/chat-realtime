@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom';
 import { setLoggedIn, setUser } from '../store/actions/application.actions';
 interface LoginProps {
     
@@ -30,7 +31,7 @@ const Login: React.FC<LoginProps> = () => {
     const [errorMail, setErrorMail] = React.useState<boolean>(false);
     const [errorPassword, setErrorPassword] = React.useState<boolean>(false);
     const [errorUsername, setErrorUsername] = React.useState<boolean>(false);
-    const store = useSelector((store) => store.applicationReducer.user);
+    const isLoggedIn = useSelector((store) => store.applicationReducer.isLoggedIn);
 
     const URL = "http://localhost:3001/login";
 
@@ -78,7 +79,7 @@ const Login: React.FC<LoginProps> = () => {
         })
     }
 
-    if (JSON.parse(localStorage.getItem("user") || "{}")) return window.location.href = "/";
+    if (isLoggedIn) return <Navigate to="/" replace={true} />
 
     return (  
         <main className="container">

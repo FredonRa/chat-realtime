@@ -1,14 +1,13 @@
 import * as t from '../types';
 import { User } from '../../types/application.types';
 
-// Get all products from local storage
 export const setLoggedIn = () => {
+    localStorage.setItem('isLoggedIn', 'true')
     return {
         type: t.SET_IS_LOGGEDIN,
     };
 }
 
-// Receive product for add in the cart
 export const setUser = (user: User) => {
     localStorage.setItem('user', JSON.stringify(user))
     return {
@@ -17,8 +16,8 @@ export const setUser = (user: User) => {
     };
 };
 
-// Receive product for remove him in the cart
 export const setLogout = () => {
+    localStorage.setItem('isLoggedIn', 'false')
     return {
         type: t.SET_LOGOUT,
     }
